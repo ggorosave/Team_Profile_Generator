@@ -1,0 +1,62 @@
+/* 
+Color Palete
+prim: #e2434b
+second: #f9bf8f
+tert: #fee9d7 
+*/
+
+/* 
+Font
+font-family: 'Montserrat', sans-serif;
+*/
+
+:root {
+    --prim: #323643;
+    --second: #6dd3ff;
+    --tert: #f7f7f7;
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Rubik', sans-serif;
+}
+
+/* Font-Size */
+h2 {
+    font-size: 1.3rem;
+}
+
+h3 {
+    font-size: 1.1rem;
+}
+
+h1 {
+    color: var(--tert);
+} 
+
+/* Jumbotron */
+.jumbotron {
+    background-color: var(--prim);
+}
+
+/* Employee Cards */
+.employee-card {
+    padding: 0;
+    max-width: 16em;
+}
+
+.card-header {
+    background-color: var(--second);
+}
+
+.card-title {
+    color: #323643;
+}
+
+.card-subtitle {
+    color: #666c81;
+}
+
+.list-group-item {
+    background-color: var(--tert);
+}
