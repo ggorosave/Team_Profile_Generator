@@ -1,17 +1,67 @@
 // Packages? Modules?
 
 // Function to render engineer card
-function renderEngineerCard() {
-    return ``
+function renderEngineerCard(...args) {
+    return `
+    <!-- Engineer -->
+    <div class="card employee-card m-2 col-sm-12 col-md-4">
+
+        <!-- Header -->
+        <div class="card-header">
+            <h2 class="card-title">${engineer.name}</h2>
+            <h3 class="card-subtitle text-muted">Engineer</i></h3>
+        </div>
+
+        <!-- Group List -->
+        <ul class="list-group list-group-flush">
+
+            <!-- ID -->
+            <li class="list-group-item">ID: ${engineer.id}</li>
+
+            <!-- Email -->
+            <li class="list-group-item">Email:
+                <a class="card-link" href="emailto:${engineer.email}" target="_blank">${engineer.email}</a>
+            </li>
+
+            <!-- GitHub -->
+            <li class="list-group-item">GitHub:
+                <a class="card-link" href="https://github.com/engineer" target="_blank">${engineer.github}</a>
+            </li>
+        </ul>
+    </div>`
 }
 
 // Function to render intern card
-function renderInternCard() {
-    return ``
+function renderInternCard(...args) {
+    return `
+    <!-- Intern -->
+    <div class="card employee-card m-2 col-sm-12 col-md-4">
+
+        <!-- Header -->
+        <div class="card-header">
+            <h2 class="card-title">${intern.name}</h2>
+            <h3 class="card-subtitle text-muted">Intern</h3>
+        </div>
+
+        <!-- Group List -->
+        <ul class="list-group list-group-flush">
+
+            <!-- ID -->
+            <li class="list-group-item">ID: ${intern.id}</li>
+
+            <!-- Email -->
+            <li class="list-group-item">Email:
+                <a class="card-link" href="emailto:${intern.email}" target="_blank">${intern.email}</a>
+            </li>
+
+            <!-- School -->
+            <li class="list-group-item">School: ${intern.school}</li>
+        </ul>
+    </div>`
 }
 
 // Function to generate HTML page
-function generateHtml() {
+function generateHtml(...args) {
     return `<!DOCTYPE html>
     <html lang="en">
     
@@ -70,59 +120,9 @@ function generateHtml() {
                         <li class="list-group-item">Office Number: ${manager.officeNumber}</li>
                     </ul>
                 </div>
-    
-                <!-- Engineer -->
-                <div class="card employee-card m-2 col-sm-12 col-md-4">
-    
-                    <!-- Header -->
-                    <div class="card-header">
-                        <h2 class="card-title">${engineer.name}</h2>
-                        <h3 class="card-subtitle text-muted">Engineer</i></h3>
-                    </div>
-    
-                    <!-- Group List -->
-                    <ul class="list-group list-group-flush">
-    
-                        <!-- ID -->
-                        <li class="list-group-item">ID: ${engineer.id}</li>
-    
-                        <!-- Email -->
-                        <li class="list-group-item">Email:
-                            <a class="card-link" href="emailto:${engineer.email}" target="_blank">${engineer.email}</a>
-                        </li>
-    
-                        <!-- GitHub -->
-                        <li class="list-group-item">GitHub:
-                            <a class="card-link" href="https://github.com/engineer" target="_blank">${engineer.github}</a>
-                        </li>
-                    </ul>
-                </div>
-    
-                
-                <!-- Intern -->
-                <div class="card employee-card m-2 col-sm-12 col-md-4">
-    
-                    <!-- Header -->
-                    <div class="card-header">
-                        <h2 class="card-title">${intern.name}</h2>
-                        <h3 class="card-subtitle text-muted">Intern</h3>
-                    </div>
-    
-                    <!-- Group List -->
-                    <ul class="list-group list-group-flush">
-    
-                        <!-- ID -->
-                        <li class="list-group-item">ID: ${intern.id}</li>
-    
-                        <!-- Email -->
-                        <li class="list-group-item">Email:
-                            <a class="card-link" href="emailto:${intern.email}" target="_blank">${intern.email}</a>
-                        </li>
-    
-                        <!-- School -->
-                        <li class="list-group-item">School: ${intern.school}</li>
-                    </ul>
-                </div>
+                ${renderEngineerCard(...args)}
+                ${renderInternCard(...args)}
+
     
             </div>
         </div>
