@@ -7,4 +7,15 @@ describe('Engineer', () => {
 
         expect(engineer).toEqual({ name: 'Kermit', id: '612332', email: 'kermit@thefrog.com', github: 'banjo_magic' })
     });
+
+    describe('Get Github', () => {
+    
+        it('should return the github id of the engineer', () => {
+            const engineer = new Engineer('Kermit', '612332', 'kermit@thefrog.com', 'banjo_magic');
+
+            const result = engineer.github();
+    
+            expect(result).toBe('banjo_magic')
+        });
+    })
 })
