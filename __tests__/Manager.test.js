@@ -19,4 +19,15 @@ describe('Manager', () => {
         });
     });
 
+    describe('Get Role', () => {
+
+        it('should return the role "manager"', () => {
+            const manager = new Manager('Ms Piggy', '347658', 'ms.piggy@bosslady.com', '80');
+
+            const result = manager.getRole();
+
+            expect(result).toBe('Manager');            
+        });
+    });
+
 });
