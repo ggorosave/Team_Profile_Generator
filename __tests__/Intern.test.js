@@ -21,7 +21,10 @@ describe('Intern', () => {
     describe('Get Role', () => {
     
         it('should overwrite the employee role and return "Intern"', () => {
-            x
+            const intern = new Intern();
+            const result = intern.getRole();
+
+            expect(result).toBe('Intern');
         });
     })
 })
