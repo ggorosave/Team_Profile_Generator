@@ -13,7 +13,7 @@ describe('Engineer', () => {
         it('should return the github id of the engineer', () => {
             const engineer = new Engineer('Kermit', '612332', 'kermit@thefrog.com', 'banjo_magic');
 
-            const result = engineer.github();
+            const result = engineer.getGithub();
     
             expect(result).toBe('banjo_magic')
         });
