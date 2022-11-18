@@ -11,7 +11,10 @@ describe('Intern', () => {
     describe('Get School', () => {
     
         it('should return the school of the intern', () => {
-            x
+            const intern = new Intern('Gonzo', '133539', 'gonzo@ilovechickens.com', 'University of Jim Henson');
+            const result = intern.getSchool();
+
+            expect(result).toBe('University of Jim Henson')
         });
     })
 
