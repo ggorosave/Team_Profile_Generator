@@ -19,6 +19,7 @@
   "homepage": "https://github.com/ggorosave/Team_Profile_Generator#readme",
   "dependencies": {
     "@types/inquirer": "^9.0.3",
+    "@types/jest": "^29.2.3",
     "inquirer": "^8.2.4",
     "jest": "^29.3.1"
   }
