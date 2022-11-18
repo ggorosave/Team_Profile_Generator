@@ -6,6 +6,8 @@
 
 // Function to write html file
 
+// Function to append html file
+
 // Function to initialize the app
 
 // Initialize the app here
