@@ -13,7 +13,7 @@ describe('Manager', () => {
         it('should return the office number of the manager', () => {
             const manager = new Manager('Ms Piggy', '347658', 'ms.piggy@bosslady.com', '80');
 
-            const result = manager.officeNumber();
+            const result = manager.getOfficeNumber();
 
             expect(result).toBe('80');            
         });
