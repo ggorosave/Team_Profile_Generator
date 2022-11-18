@@ -18,4 +18,15 @@ describe('Engineer', () => {
             expect(result).toBe('banjo_magic')
         });
     })
+
+    describe('Get Role', () => {
+    
+        it('should overwrite the employee role and return "Engineer"', () => {
+            const engineer = new Engineer();
+
+            const result = engineer.getRole();
+    
+            expect(result).toBe('Engineer')
+        });
+    })
 })
