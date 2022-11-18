@@ -11,14 +11,14 @@ describe('Intern', () => {
     describe('Get School', () => {
     
         it('should return the school of the intern', () => {
-            
+            x
         });
     })
 
     describe('Get Role', () => {
     
         it('should overwrite the employee role and return "Intern"', () => {
-            
+            x
         });
     })
 })
