@@ -44,8 +44,8 @@ function renderHtml(team) {
         // loops through each member of the team, checks the role, and returns a template
         team.forEach((member) => {
             const role = member.role;
-    
-            if(role === 'Manager') {
+
+            if (role === 'Manager') {
                 const { name, id, email, officeNumber } = member;
                 return `
                 <!-- Manager -->
@@ -73,8 +73,8 @@ function renderHtml(team) {
                     </ul>
                 </div>`;
             }
-    
-            if(role === 'Engineer') {
+
+            if (role === 'Engineer') {
                 const { name, id, email, github } = member;
                 return `
                 <!-- Engineer -->
@@ -104,8 +104,8 @@ function renderHtml(team) {
                     </ul>
                 </div>`;
             }
-    
-            if(role === 'Intern') {
+
+            if (role === 'Intern') {
                 const { name, id, email, school } = member;
                 return `
                 <!-- Intern -->
@@ -133,7 +133,7 @@ function renderHtml(team) {
                     </ul>
                 </div>`;
             }
-    
+
             return console.log('Failed to render team members');
         });
     }
@@ -160,3 +160,4 @@ function renderHtml(team) {
 };
 
 
+module.exports = renderHtml;

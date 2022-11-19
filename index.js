@@ -5,8 +5,8 @@ const fs = require('fs');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-const renderInitialHtml = require('./src/page-template');
-const renderEngineerCard = require('./src/page-template');
+const renderHtml = require('./src/page-template');
+
 
 class NewTeam {
 
@@ -149,15 +149,14 @@ class NewTeam {
     }
 
     // Function to write the initial portion of the html file
-    initHtmlFile(filename, data) {
-        fs.writeFile(`./dist/${filename}`, data, (error) => error ? console.log(error) : console.log('HTML initialized...')); 
+    initHtmlFile(filename, team) {
+        fs.writeFile(`./dist/${filename}`, renderHtml(team), (error) => error ? console.log(error) : console.log('HTML initialized...')); 
     }
 
-    // Function to append html file
-
     // Function to initialize the app
-
-    // Initialize the app here
+    buildTeam() {
+        this.askForManagerInfo('the team manager');
+    }
 }
 
 // TESTS
@@ -165,7 +164,7 @@ class NewTeam {
 
     const newTeam = new NewTeam();
 
-    newTeam.askForManagerInfo('the team manager');
+    // newTeam.askForManagerInfo('the team manager');
 
     // newTeam.askForEngineerInfo('your engineer');
 
