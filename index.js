@@ -13,7 +13,7 @@ class NewTeam {
     }
 
 
-    // Array of questions for user input (inquirer)
+    // Questions for user input (inquirer)
     getEmployeeQuestions(role) {
         const employeeQuestions = [
             {
@@ -90,6 +90,7 @@ class NewTeam {
             });
     }
 
+    // Select menu
     addMoreEmployeesMenu() {
         return inquirer
             .prompt(
@@ -102,7 +103,32 @@ class NewTeam {
                     }
                 ]
             ).then((ans) => {
-                console.log(ans);
+                const { addEmployee } = ans;
+                console.log(addEmployee);
+                // Switch case for user choice (look at destructuring)
+                switch(addEmployee) {
+                    case 'Engineer':
+                        
+                        // run questions for engineer
+                        this.askForEngineerInfo('your engineer');
+
+                        break;
+                    case 'Intern':
+
+                        // run questions for intern
+                        this.askForInternInfo('your intern');
+                        
+                        break;
+                    case 'Stop adding team members':
+
+                        console.log('Generating html...');
+
+                        break;
+                    default:
+                        
+                        throw 'Please select an option';
+                    
+                }
             });
     }
     // Function to write html file
