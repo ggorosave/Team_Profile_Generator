@@ -26,7 +26,7 @@ describe('Manager', () => {
 
             const result = manager.getRole();
 
-            expect(result).toBe('Manager');            
+            expect(result).toBe('the team manager');            
         });
     });
 
