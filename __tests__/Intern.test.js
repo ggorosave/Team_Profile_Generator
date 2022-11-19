@@ -24,7 +24,7 @@ describe('Intern', () => {
             const intern = new Intern();
             const result = intern.getRole();
 
-            expect(result).toBe('Intern');
+            expect(result).toBe('your intern');
         });
     })
 })
