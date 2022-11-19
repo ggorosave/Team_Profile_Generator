@@ -89,6 +89,22 @@ class NewTeam {
                 console.log(ans);
             });
     }
+
+    addMoreEmployeesMenu() {
+        return inquirer
+            .prompt(
+                [
+                    {
+                        type: 'list',
+                        name: 'addEmployee',
+                        message: 'Select the team member you would like to add:',
+                        choices: ['Engineer', 'Intern', 'Stop adding team members',],
+                    }
+                ]
+            ).then((ans) => {
+                console.log(ans);
+            });
+    }
     // Function to write html file
 
     // Function to append html file
@@ -107,4 +123,6 @@ class NewTeam {
 
     // newTeam.askForEngineerInfo('your engineer');
 
-    newTeam.askForInternInfo('your intern');
+    // newTeam.askForInternInfo('your intern');
+
+    newTeam.addMoreEmployeesMenu();
