@@ -5,7 +5,7 @@ describe('Employee', () => {
     it('should return and object with name, id, and email properties of an employee', () => {
         const employee = new Employee('Fozzi', '347126', 'fozzibear@wakawaka.com');
 
-        expect(employee).toEqual({ name: 'Fozzi', id: '347126', email: 'fozzibear@wakawaka.com' })
+        expect(employee).toEqual({ name: 'Fozzi', id: '347126', email: 'fozzibear@wakawaka.com', role: 'Employee' })
     });
 
     describe('Get Name', () => {
