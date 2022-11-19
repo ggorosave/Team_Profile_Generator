@@ -48,7 +48,7 @@ describe('Employee', () => {
 
             const result = employee.getRole();
     
-            expect(result).toBe('your employee');
+            expect(result).toBe('Employee');
         });
         
     });

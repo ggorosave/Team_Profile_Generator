@@ -5,11 +5,13 @@ const fs = require('fs');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+const renderInitialHtml = require('./src/page-template');
+const renderEngineerCard = require('./src/page-template');
 
 class NewTeam {
 
     constructor() {
-
+        this.team = []
     }
 
 
@@ -50,7 +52,12 @@ class NewTeam {
                     }
                 ]
             ).then((ans) => {
-                console.log(ans);
+                const { name, id, email, officeNumber } = ans;
+                const manager = new Manager(name, id, email, officeNumber);
+                this.team.push(manager);
+                console.log('Added a team manager...');
+                this.addMoreEmployeesMenu();
+                // renderInitialHtml()
             });
     }
 
@@ -68,7 +75,11 @@ class NewTeam {
                     }
                 ]
             ).then((ans) => {
-                console.log(ans);
+                const { name, id, email, github } = ans;
+                const engineer = new Engineer(name, id, email, github);
+                this.team.push(engineer);
+                console.log('Added an engineer to the team...');
+                this.addMoreEmployeesMenu();
             });
     }
 
@@ -86,7 +97,11 @@ class NewTeam {
                     }
                 ]
             ).then((ans) => {
-                console.log(ans);
+                const { name, id, email, school } = ans;
+                const intern = new Intern(name, id, email, school);
+                this.team.push(intern);
+                console.log('Added and intern to the team...');
+                this.addMoreEmployeesMenu();
             });
     }
 
@@ -122,6 +137,7 @@ class NewTeam {
                     case 'Stop adding team members':
 
                         console.log('Generating html...');
+                        console.log(this.team);
 
                         break;
                     default:
@@ -131,7 +147,11 @@ class NewTeam {
                 }
             });
     }
-    // Function to write html file
+
+    // Function to write the initial portion of the html file
+    initHtmlFile(filename, data) {
+        fs.writeFile(`./dist/${filename}`, data, (error) => error ? console.log(error) : console.log('HTML initialized...')); 
+    }
 
     // Function to append html file
 
@@ -145,10 +165,12 @@ class NewTeam {
 
     const newTeam = new NewTeam();
 
-    // newTeam.askForManagerInfo('the team manager');
+    newTeam.askForManagerInfo('the team manager');
 
     // newTeam.askForEngineerInfo('your engineer');
 
     // newTeam.askForInternInfo('your intern');
 
-    newTeam.addMoreEmployeesMenu();
+    // newTeam.addMoreEmployeesMenu();
+
+    // newTeam.initHtmlFile('index.html', '<h1>hello world!<h1>');
