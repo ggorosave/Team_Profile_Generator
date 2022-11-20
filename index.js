@@ -5,7 +5,7 @@ const fs = require('fs');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-const renderHtml = require('./src/page-template');
+const { renderHtml } = require('./src/page-template');
 
 
 class NewTeam {
@@ -137,7 +137,7 @@ class NewTeam {
                     case 'Stop adding team members':
 
                         console.log('Generating html...');
-                        console.log(this.team);
+                        renderHtml(this.team);
 
                         break;
                     default:
@@ -148,28 +148,11 @@ class NewTeam {
             });
     }
 
-    // Function to write the initial portion of the html file
-    initHtmlFile(filename, team) {
-        fs.writeFile(`./dist/${filename}`, renderHtml(team), (error) => error ? console.log(error) : console.log('HTML initialized...')); 
-    }
-
     // Function to initialize the app
     buildTeam() {
         this.askForManagerInfo('the team manager');
     }
 }
 
-// TESTS
-
-
     const newTeam = new NewTeam();
-
-    // newTeam.askForManagerInfo('the team manager');
-
-    // newTeam.askForEngineerInfo('your engineer');
-
-    // newTeam.askForInternInfo('your intern');
-
-    // newTeam.addMoreEmployeesMenu();
-
-    // newTeam.initHtmlFile('index.html', '<h1>hello world!<h1>');
+    newTeam.buildTeam();
