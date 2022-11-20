@@ -5,7 +5,7 @@ describe('Engineer', () => {
     it('should return an object with the name, id, email, and github of and engineer', () => {
         const engineer = new Engineer('Kermit', '612332', 'kermit@thefrog.com', 'banjo_magic');
 
-        expect(engineer).toEqual({ name: 'Kermit', id: '612332', email: 'kermit@thefrog.com', github: 'banjo_magic' })
+        expect(engineer).toEqual({ name: 'Kermit', id: '612332', email: 'kermit@thefrog.com', github: 'banjo_magic', role: 'Engineer' })
     });
 
     describe('Get Github', () => {
@@ -26,7 +26,7 @@ describe('Engineer', () => {
 
             const result = engineer.getRole();
     
-            expect(result).toBe('your engineer')
+            expect(result).toBe('Engineer')
         });
     })
 })

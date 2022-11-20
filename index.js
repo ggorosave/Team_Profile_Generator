@@ -1,15 +1,16 @@
 // Packages
 const inquirer = require('inquirer');
-const fs = require('fs');
 // Modules
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+const { renderHtml } = require('./src/page-template');
+
 
 class NewTeam {
 
     constructor() {
-
+        this.team = []
     }
 
 
@@ -50,7 +51,12 @@ class NewTeam {
                     }
                 ]
             ).then((ans) => {
-                console.log(ans);
+                const { name, id, email, officeNumber } = ans;
+                const manager = new Manager(name, id, email, officeNumber);
+                this.team.push(manager);
+                console.log('Added a team manager...');
+                this.addMoreEmployeesMenu();
+                // renderInitialHtml()
             });
     }
 
@@ -68,7 +74,11 @@ class NewTeam {
                     }
                 ]
             ).then((ans) => {
-                console.log(ans);
+                const { name, id, email, github } = ans;
+                const engineer = new Engineer(name, id, email, github);
+                this.team.push(engineer);
+                console.log('Added an engineer to the team...');
+                this.addMoreEmployeesMenu();
             });
     }
 
@@ -86,7 +96,11 @@ class NewTeam {
                     }
                 ]
             ).then((ans) => {
-                console.log(ans);
+                const { name, id, email, school } = ans;
+                const intern = new Intern(name, id, email, school);
+                this.team.push(intern);
+                console.log('Added and intern to the team...');
+                this.addMoreEmployeesMenu();
             });
     }
 
@@ -106,9 +120,9 @@ class NewTeam {
                 const { addEmployee } = ans;
                 console.log(addEmployee);
                 // Switch case for user choice (look at destructuring)
-                switch(addEmployee) {
+                switch (addEmployee) {
                     case 'Engineer':
-                        
+
                         // run questions for engineer
                         this.askForEngineerInfo('your engineer');
 
@@ -117,38 +131,27 @@ class NewTeam {
 
                         // run questions for intern
                         this.askForInternInfo('your intern');
-                        
+
                         break;
                     case 'Stop adding team members':
-
+                        console.log(this.team)
                         console.log('Generating html...');
+                        renderHtml(this.team);
 
                         break;
                     default:
-                        
+
                         throw 'Please select an option';
-                    
+
                 }
             });
     }
-    // Function to write html file
-
-    // Function to append html file
 
     // Function to initialize the app
-
-    // Initialize the app here
+    buildTeam() {
+        this.askForManagerInfo('the team manager');
+    }
 }
 
-// TESTS
-
-
-    const newTeam = new NewTeam();
-
-    // newTeam.askForManagerInfo('the team manager');
-
-    // newTeam.askForEngineerInfo('your engineer');
-
-    // newTeam.askForInternInfo('your intern');
-
-    newTeam.addMoreEmployeesMenu();
+const newTeam = new NewTeam();
+newTeam.buildTeam();

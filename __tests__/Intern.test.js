@@ -5,7 +5,7 @@ describe('Intern', () => {
     it('should return an object with the name, id, email, and github of and engineer', () => {
         const intern = new Intern('Gonzo', '133539', 'gonzo@ilovechickens.com', 'University of Jim Henson');
 
-        expect(intern).toEqual({ name: 'Gonzo', id: '133539', email: 'gonzo@ilovechickens.com', school: 'University of Jim Henson' })
+        expect(intern).toEqual({ name: 'Gonzo', id: '133539', email: 'gonzo@ilovechickens.com', school: 'University of Jim Henson', role: 'Intern' })
     });
 
     describe('Get School', () => {
@@ -24,7 +24,7 @@ describe('Intern', () => {
             const intern = new Intern();
             const result = intern.getRole();
 
-            expect(result).toBe('your intern');
+            expect(result).toBe('Intern');
         });
     })
 })
