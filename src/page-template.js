@@ -20,14 +20,15 @@ function renderHtml(team) {
 
     // Function to check the team roles and render team meber cards
     const renderTeam = (team) => {
-
+        // Make a function for each card, then call the next card at the end of each function
+        
         // loops through each member of the team, checks the role, and returns a template
         team.forEach((member) => {
             const role = member.role;
-
             if (role === 'Manager') {
                 const { name, id, email, officeNumber } = member;
                 const managerCard = `
+                
                 <!-- Manager -->
                 <div class="card employee-card m-2 col-sm-12 col-md-4">
     
@@ -45,7 +46,7 @@ function renderHtml(team) {
     
                         <!-- Email -->
                         <li class="list-group-item">Email:
-                            <a class="card-link" href="emailto:${email}" target="_blank">${email}/a>
+                            <a class="card-link" href="emailto:${email}" target="_blank">${email}</a>
                         </li>
     
                         <!-- Office Number -->
@@ -54,11 +55,10 @@ function renderHtml(team) {
                 </div>`;
 
                 fs.appendFile('./dist/index.html', managerCard, (error) => error ? console.log(error) : console.log('Manager added!'));
-            }
-
-            if (role === 'Engineer') {
+            } else if (role === 'Engineer') {
                 const { name, id, email, github } = member;
                 const engineerCard = `
+                
                 <!-- Engineer -->
                 <div class="card employee-card m-2 col-sm-12 col-md-4">
     
@@ -87,11 +87,10 @@ function renderHtml(team) {
                 </div>`;
 
                 fs.appendFile('./dist/index.html', engineerCard, (error) => error ? console.log(error) : console.log('Engineer added!'));
-            }
-
-            if (role === 'Intern') {
+            } else if (role === 'Intern') {
                 const { name, id, email, school } = member;
                 const internCard = `
+                
                 <!-- Intern -->
                 <div class="card employee-card m-2 col-sm-12 col-md-4">
     
@@ -117,10 +116,10 @@ function renderHtml(team) {
                     </ul>
                 </div>`;
 
-                fs.appendFile('./dist/index.html', internCard, (error) => error ? console.log(error) : console.log('Inten added!'));
-            }
+                fs.appendFile('./dist/index.html', internCard, (error) => error ? console.log(error) : console.log('Intern added!'));
+            } 
 
-            return console.log('Failed to render team members');
+            return console.log(team.indexOf(member));
         });
 
         renderClosingHtml();

@@ -1,6 +1,5 @@
 // Packages
 const inquirer = require('inquirer');
-const fs = require('fs');
 // Modules
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
@@ -121,9 +120,9 @@ class NewTeam {
                 const { addEmployee } = ans;
                 console.log(addEmployee);
                 // Switch case for user choice (look at destructuring)
-                switch(addEmployee) {
+                switch (addEmployee) {
                     case 'Engineer':
-                        
+
                         // run questions for engineer
                         this.askForEngineerInfo('your engineer');
 
@@ -132,18 +131,18 @@ class NewTeam {
 
                         // run questions for intern
                         this.askForInternInfo('your intern');
-                        
+
                         break;
                     case 'Stop adding team members':
-
+                        console.log(this.team)
                         console.log('Generating html...');
                         renderHtml(this.team);
 
                         break;
                     default:
-                        
+
                         throw 'Please select an option';
-                    
+
                 }
             });
     }
@@ -154,5 +153,5 @@ class NewTeam {
     }
 }
 
-    const newTeam = new NewTeam();
-    newTeam.buildTeam();
+const newTeam = new NewTeam();
+newTeam.buildTeam();
