@@ -112,119 +112,6 @@ function renderHtml(team) {
         });
     }
 
-    const renderManagerCard = (team) => {
-        team.forEach((member) => {
-    
-            const role = member.role;
-            if (role === 'Manager') {
-                const { name, id, email, officeNumber } = member;
-                const manager = `
-                
-                <!-- Manager -->
-                <div class="card employee-card m-2 col-sm-12 col-md-4">
-    
-                    <!-- Header -->
-                    <div class="card-header">
-                        <h2 class="card-title">${name}</h2>
-                        <h3 class="card-subtitle">Manager</h3>
-                    </div>
-    
-                    <!-- Group List -->
-                    <ul class="list-group list-group-flush">
-    
-                        <!-- ID -->
-                        <li class="list-group-item">ID: ${id}</li>
-    
-                        <!-- Email -->
-                        <li class="list-group-item">Email:
-                            <a class="card-link" href="emailto:${email}" target="_blank">${email}</a>
-                        </li>
-    
-                        <!-- Office Number -->
-                        <li class="list-group-item">Office Number: ${officeNumber}</li>
-                    </ul>
-                </div>`;
-
-                managerArr.push(manager);
-            }
-        });
-    }
-
-    const renderEngineerCard = (team) => {
-        team.forEach((member) => {
-            const role = member.role;
-            if (role === 'Engineer') {
-                const { name, id, email, github } = member;
-                const engineer =  `
-                
-                <!-- Engineer -->
-                <div class="card employee-card m-2 col-sm-12 col-md-4">
-    
-                    <!-- Header -->
-                    <div class="card-header">
-                        <h2 class="card-title">${name}</h2>
-                        <h3 class="card-subtitle text-muted">Engineer</i></h3>
-                    </div>
-    
-                    <!-- Group List -->
-                    <ul class="list-group list-group-flush">
-    
-                        <!-- ID -->
-                        <li class="list-group-item">ID: ${id}</li>
-    
-                        <!-- Email -->
-                        <li class="list-group-item">Email:
-                            <a class="card-link" href="emailto:${email}" target="_blank">${email}</a>
-                        </li>
-    
-                        <!-- GitHub -->
-                        <li class="list-group-item">GitHub:
-                            <a class="card-link" href="https://github.com/${github}" target="_blank">${github}</a>
-                        </li>
-                    </ul>
-                </div>`;
-
-                engineerArr.push(engineer);
-            }
-        });
-    }
-
-    const renderInternCard = (team) => {
-        team.forEach((member) => {
-            const role = member.role;
-            if (role === 'Intern') {
-                const { name, id, email, school } = member;
-                const intern = `
-                
-                <!-- Intern -->
-                <div class="card employee-card m-2 col-sm-12 col-md-4">
-    
-                    <!-- Header -->
-                    <div class="card-header">
-                        <h2 class="card-title">${name}</h2>
-                        <h3 class="card-subtitle text-muted">Intern</h3>
-                    </div>
-    
-                    <!-- Group List -->
-                    <ul class="list-group list-group-flush">
-    
-                        <!-- ID -->
-                        <li class="list-group-item">ID: ${id}</li>
-    
-                        <!-- Email -->
-                        <li class="list-group-item">Email:
-                            <a class="card-link" href="emailto:${email}" target="_blank">${email}</a>
-                        </li>
-    
-                        <!-- School -->
-                        <li class="list-group-item">School: ${school}</li>
-                    </ul>
-                </div>`;
-
-                internArr.push(intern);
-            }
-        });
-    }
 
     // Takes the manager, engineer, and intern arrays, joins them into a single string, then inputs them into the html template.
     const generateHtml = (managerArr, engineerArr, internArr) => {
@@ -283,9 +170,6 @@ function renderHtml(team) {
         fs.writeFile('./dist/index.html', html, (error) => error ? console.log(error) : console.log('HTML initialized...'));
     }
 
-    // renderManagerCard(team);
-    // renderEngineerCard(team);
-    // renderInternCard(team);
     renderCards(team);
 
     generateHtml(managerArr, engineerArr, internArr);
