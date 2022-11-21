@@ -21,16 +21,19 @@ class NewTeam {
                 type: 'input',
                 name: 'name',
                 message: `What is ${role}'s name?`,
+                validate: val => /[a-z]/gi.test(val),
             },
             {
                 type: 'input',
                 name: 'id',
                 message: `What is ${role}'s id?`,
+                validate: val => /[1-9]/g.test(val),
             },
             {
                 type: 'input',
                 name: 'email',
                 message: `What is ${role}'s email?`,
+                validate: val => /[a-z1-9!@_\-\.]/gi.test(val),
             }
         ]
 
@@ -48,6 +51,7 @@ class NewTeam {
                         type: 'input',
                         name: 'officeNumber',
                         message: "What is team manager's office number?",
+                        validate: val => /[1-9]/g.test(val),
                     }
                 ]
             ).then((ans) => {
@@ -71,6 +75,7 @@ class NewTeam {
                         type: 'input',
                         name: 'github',
                         message: "What is your engineer's github username?",
+                        validate: val => /[a-z1-9!@_\-\.]/gi.test(val),
                     }
                 ]
             ).then((ans) => {
@@ -93,6 +98,7 @@ class NewTeam {
                         type: 'input',
                         name: 'school',
                         message: "What is your intern's school?",
+                        validate: val => /[a-z]/gi.test(val),
                     }
                 ]
             ).then((ans) => {
@@ -149,6 +155,16 @@ class NewTeam {
 
     // Function to initialize the app
     buildTeam() {
+        // Logs instructions on screen
+        console.log('============================================INSTRUCTIONS============================================')
+        console.log('')
+        console.log('Welcome to the Team Profile generator!')
+        console.log('Answer the following questions to generate an profile page for your team.')
+        console.log('Your team must include a manager and at least one engineer.')
+        console.log('')
+        console.log('====================================================================================================')
+        console.log('')
+
         this.askForManagerInfo('the team manager');
     }
 }
