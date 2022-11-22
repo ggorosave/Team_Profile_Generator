@@ -124,7 +124,7 @@ class NewTeam {
                 ]
             ).then((ans) => {
                 const { addEmployee } = ans;
-                console.log(addEmployee);
+               
                 // Switch case for user choice (look at destructuring)
                 switch (addEmployee) {
                     case 'Engineer':
@@ -140,7 +140,7 @@ class NewTeam {
 
                         break;
                     case 'Stop adding team members':
-                        console.log(this.team)
+                        
                         console.log('Generating html...');
                         renderHtml(this.team);
 
