@@ -6,7 +6,8 @@ Even though creating a webpage for a team profile is a simple task, it can be bo
 
 ### Demo
 
-[Google Drive Video](...)
+- [Google Drive Video](https://drive.google.com/file/d/11B6LNXEN73Q1im6XsO7Vbog8nWrlBhIe/view?usp=sharing)
+- [Sample HTML from demo](...)
 
 ## Table of Contents 
 
