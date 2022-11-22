@@ -33,7 +33,7 @@ function renderHtml(team) {
     
                         <!-- Email -->
                         <li class="list-group-item">Email:
-                            <a class="card-link" href="emailto:${email}" target="_blank">${email}</a>
+                            <a class="card-link" href="mailto:${email}" target="_blank">${email}</a>
                         </li>
     
                         <!-- Office Number -->
@@ -65,7 +65,7 @@ function renderHtml(team) {
     
                         <!-- Email -->
                         <li class="list-group-item">Email:
-                            <a class="card-link" href="emailto:${email}" target="_blank">${email}</a>
+                            <a class="card-link" href="mailto:${email}" target="_blank">${email}</a>
                         </li>
     
                         <!-- GitHub -->
@@ -99,7 +99,7 @@ function renderHtml(team) {
     
                         <!-- Email -->
                         <li class="list-group-item">Email:
-                            <a class="card-link" href="emailto:${email}" target="_blank">${email}</a>
+                            <a class="card-link" href="mailto:${email}" target="_blank">${email}</a>
                         </li>
     
                         <!-- School -->
