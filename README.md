@@ -6,8 +6,10 @@ Even though creating a webpage for a team profile is a simple task, it can be bo
 
 ### Demo
 
+https://user-images.githubusercontent.com/103039442/203182767-ca7225fc-7f60-4a0c-b842-bf8092efd342.mp4
+
 - [Google Drive Video](https://drive.google.com/file/d/11B6LNXEN73Q1im6XsO7Vbog8nWrlBhIe/view?usp=sharing)
-- [Sample HTML from demo](...)
+- [Sample HTML from demo](https://github.com/ggorosave/Team_Profile_Generator/blob/main/dist/index.html)
 
 ## Table of Contents 
 
