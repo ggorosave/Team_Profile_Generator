@@ -10,6 +10,7 @@ const { renderHtml } = require('./src/page-template');
 class NewTeam {
 
     constructor() {
+        // Empty array to push new team members into
         this.team = []
     }
 
@@ -40,12 +41,14 @@ class NewTeam {
         return employeeQuestions;
     }
 
+    // Manager questions
     askForManagerInfo(role) {
         const employeeQuestions = this.getEmployeeQuestions(role);
 
         return inquirer
             .prompt(
                 [
+                    // Spreads out employee questions
                     ...employeeQuestions,
                     {
                         type: 'input',
@@ -55,21 +58,30 @@ class NewTeam {
                     }
                 ]
             ).then((ans) => {
+                // destructures answers
                 const { name, id, email, officeNumber } = ans;
+
+                // creates new instance of Manager from answer
                 const manager = new Manager(name, id, email, officeNumber);
+
+                // pushes manager into team array
                 this.team.push(manager);
                 console.log('Added a team manager...');
+
+                // takes user back to menu
                 this.addMoreEmployeesMenu();
-                // renderInitialHtml()
+                
             });
     }
 
+    // Engineer Questions
     askForEngineerInfo(role) {
         const employeeQuestions = this.getEmployeeQuestions(role);
 
         return inquirer
             .prompt(
                 [
+                    // Spreads out employee questions
                     ...employeeQuestions,
                     {
                         type: 'input',
@@ -79,20 +91,29 @@ class NewTeam {
                     }
                 ]
             ).then((ans) => {
+                // destructures answers
                 const { name, id, email, github } = ans;
+
+                // creates new instance of Engineer from answer
                 const engineer = new Engineer(name, id, email, github);
+
+                // pushes engineer to team array
                 this.team.push(engineer);
                 console.log('Added an engineer to the team...');
+
+                // returns user to menu
                 this.addMoreEmployeesMenu();
             });
     }
 
+    // Intern Questions
     askForInternInfo(role) {
         const employeeQuestions = this.getEmployeeQuestions(role);
 
         return inquirer
             .prompt(
                 [
+                    // Spreads out employee questions
                     ...employeeQuestions,
                     {
                         type: 'input',
@@ -102,15 +123,22 @@ class NewTeam {
                     }
                 ]
             ).then((ans) => {
+                // destructures answers
                 const { name, id, email, school } = ans;
+
+                // creates new instance of Intern from answer
                 const intern = new Intern(name, id, email, school);
+
+                // pushes user to intern array
                 this.team.push(intern);
                 console.log('Added and intern to the team...');
+
+                // returns user to menu
                 this.addMoreEmployeesMenu();
             });
     }
 
-    // Select menu
+    // Add an employee menu
     addMoreEmployeesMenu() {
         return inquirer
             .prompt(
@@ -142,6 +170,8 @@ class NewTeam {
                     case 'Stop adding team members':
                         
                         console.log('Generating html...');
+
+                        // sends team array to page template where the HTML is rendered
                         renderHtml(this.team);
 
                         break;
@@ -165,6 +195,7 @@ class NewTeam {
         console.log('====================================================================================================')
         console.log('')
 
+        // prompts user for managaer info
         this.askForManagerInfo('the team manager');
     }
 }
